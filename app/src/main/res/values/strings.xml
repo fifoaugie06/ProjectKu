@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ProjectKu</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="namaproject">Nama Project</string>
+    <string name="ownerproject">Owner</string>
+    <string name="ownerprojectpc">Owner Contact</string>
+    <string name="fiturproject">Fitur Project</string>
+    <string name="feeproject">Fee</string>
+    <string name="waktumulai">Waktu Mulai</string>
+    <string name="waktuberakhir">Waktu Berakhir</string>
+    <string name="statusproject">Status Project</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="tambahkanproject">Tambahkan Project</string>
+    <string-array name="status_project">
+        <item>Berjalan</item>
+        <item>Selesai</item>
+    </string-array>
+</resources>

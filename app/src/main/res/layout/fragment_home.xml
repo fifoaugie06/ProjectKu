@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:paddingStart="@dimen/margin_padding_8dp"
+    android:paddingEnd="@dimen/margin_padding_8dp"
+    android:scrollbars="none"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_padding_12dp"
+            android:id="@+id/tvnamaproject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/namaproject"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edtnamaproject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:height="45dp"
+            android:background="@drawable/ic_bgedittext"
+            android:paddingStart="@dimen/margin_padding_8dp"
+            android:paddingEnd="@dimen/margin_padding_8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvnamaproject" />
+
+        <TextView
+            android:id="@+id/tvownerproject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/ownerproject"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtnamaproject" />
+
+        <EditText
+            android:id="@+id/edtownername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:height="45dp"
+            android:background="@drawable/ic_bgedittext"
+            android:paddingStart="@dimen/margin_padding_8dp"
+            android:paddingEnd="@dimen/margin_padding_8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvownerproject" />
+
+        <TextView
+            android:id="@+id/tvownerpc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/ownerprojectpc"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtownername" />
+
+        <EditText
+            android:id="@+id/edtownerpc"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:height="45dp"
+            android:background="@drawable/ic_bgedittext"
+            android:inputType="number"
+            android:paddingStart="@dimen/margin_padding_8dp"
+            android:paddingEnd="@dimen/margin_padding_8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvownerpc" />
+
+        <TextView
+            android:id="@+id/tvfitur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/fiturproject"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtownerpc" />
+
+        <EditText
+            android:id="@+id/edtfitur"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:height="45dp"
+            android:background="@drawable/ic_bgedittext"
+            android:paddingStart="@dimen/margin_padding_8dp"
+            android:paddingEnd="@dimen/margin_padding_8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvfitur" />
+
+        <TextView
+            android:id="@+id/tvfee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/feeproject"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtfitur" />
+
+        <EditText
+            android:id="@+id/edtfee"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:height="45dp"
+            android:background="@drawable/ic_bgedittext"
+            android:inputType="number"
+            android:paddingStart="@dimen/margin_padding_8dp"
+            android:paddingEnd="@dimen/margin_padding_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvfee"
+            app:layout_constraintWidth_percent="0.48" />
+
+        <TextView
+            android:id="@+id/tvstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/statusproject"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/spinnerstatus"
+            app:layout_constraintTop_toBottomOf="@id/edtfitur" />
+
+        <Spinner
+            android:entries="@array/status_project"
+            android:id="@+id/spinnerstatus"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:background="@drawable/ic_bgedittext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvfee"
+            app:layout_constraintWidth_percent="0.48" />
+
+        <TextView
+            android:id="@+id/tvwaktumulai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/waktumulai"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtfee" />
+
+        <EditText
+            android:id="@+id/edtwaktumulai"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:height="45dp"
+            android:background="@drawable/ic_bgedittext"
+            android:inputType="date"
+            android:paddingStart="@dimen/margin_padding_8dp"
+            android:paddingEnd="@dimen/margin_padding_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvwaktumulai"
+            app:layout_constraintWidth_percent="0.48" />
+
+        <TextView
+            android:id="@+id/tvwaktuberakhir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/waktuberakhir"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/edtwaktuberakhir"
+            app:layout_constraintTop_toBottomOf="@id/edtfee" />
+
+        <EditText
+            android:id="@+id/edtwaktuberakhir"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:height="45dp"
+            android:background="@drawable/ic_bgedittext"
+            android:inputType="date"
+            android:paddingStart="@dimen/margin_padding_8dp"
+            android:paddingEnd="@dimen/margin_padding_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvwaktuberakhir"
+            app:layout_constraintWidth_percent="0.48" />
+
+        <TextView
+            android:id="@+id/tvdeskripsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/deskripsi"
+            android:textColor="#B2000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edtwaktumulai" />
+
+        <EditText
+            android:id="@+id/edtdeskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_marginTop="@dimen/margin_padding_8dp"
+            android:background="@drawable/ic_bgedittext"
+            android:gravity="top"
+            android:lines="3"
+            android:maxLines="3"
+            android:padding="@dimen/margin_padding_8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvdeskripsi" />
+
+        <Button
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:textColor="@android:color/white"
+            android:text="@string/tambahkanproject"
+            android:id="@+id/btntambahkan"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/ic_bgbtn"
+            app:layout_constraintTop_toBottomOf="@+id/edtdeskripsi" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
