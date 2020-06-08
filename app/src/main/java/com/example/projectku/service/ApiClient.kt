@@ -1,5 +1,6 @@
-import com.example.projectku.model.ResultResponse
-import okhttp3.OkHttpClient
+import com.example.projectku.model.ResponseCreatePost
+import com.example.projectku.model.ResponseProjectsGET
+import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -9,8 +10,9 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
 
+
 class ApiClient {
-    val BASE_URL = "http://192.168.1.6/projectKu/"
+    val BASE_URL = "http://192.168.1.6:9155"
 
     fun getInterceptor(): OkHttpClient {
         val logging = HttpLoggingInterceptor()
@@ -29,22 +31,26 @@ class ApiClient {
             .build()
     }
 
+
     fun getService() = getRetrofit().create(ApiService::class.java)
 
 }
 
 interface ApiService {
     @FormUrlEncoded
-    @POST("tambahproject.php")
-    fun tambahproject(
-        @Field("namaproject") namaproject: String?,
-        @Field("owner") owner: String?,
-        @Field("ownercontact") ownercontact: String?,
-        @Field("fiturproject") fiturproject: String?,
-        @Field("fee") fee: String?,
-        @Field("statusproject") statusproject: String?,
-        @Field("waktumulai") waktumulai: String?,
-        @Field("waktuberakhir") waktuberakhir: String?,
-        @Field("deskripsi") deskripsi: String?
-    ): Call<ResultResponse?>?
+    @POST("projects/")
+    fun createProject(
+        @Field("NamaProject") namaproject: String?,
+        @Field("Owner") owner: String?,
+        @Field("OwnerPC") ownercontact: String?,
+        @Field("Fitur") fiturproject: String?,
+        @Field("Deskripsi") deskripsi: String?,
+        @Field("Fee") fee: String?,
+        @Field("WaktuMulai") waktumulai: String?,
+        @Field("WaktuBerakhir") waktuberakhir: String?,
+        @Field("StatusProject") statusproject: String?
+    ): Call<ResponseCreatePost?>?
+
+    @GET("projects/")
+    fun getListProject(): Call<ResponseProjectsGET?>?
 }

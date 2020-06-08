@@ -13,7 +13,10 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.projectku.R
-import com.example.projectku.model.ResultResponse
+import com.example.projectku.model.ResponseCreatePost
+import kotlinx.android.synthetic.main.fragment_home.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,24 +63,34 @@ class HomeFragment : Fragment() {
             edtBerakhir.length() == 0 || edtDeskripsi.length() == 0
         ) {
             Toast.makeText(root.context, "Tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            progress.dismiss()
         } else {
-            ApiClient().getService().tambahproject(
-                edtNama.text.toString(), edtOwner.text.toString(),
-                edtOwnerContact.text.toString(), edtFitur.text.toString(), edtFee.text.toString(),
-                spinnerStatus.selectedItemPosition.toString(), edtMulai.text.toString(),
-                edtBerakhir.text.toString(), edtDeskripsi.text.toString()
-            )!!.enqueue(object : Callback<ResultResponse?> {
-                override fun onFailure(call: Call<ResultResponse?>, t: Throwable) {
+            ApiClient().getService().createProject(
+                edtNama.text.toString(),
+                edtOwner.text.toString(),
+                edtOwnerContact.text.toString(),
+                edtFitur.text.toString(),
+                edtDeskripsi.text.toString(),
+                edtFee.text.toString(),
+                edtwaktumulai.text.toString(),
+                edtwaktuberakhir.text.toString(),
+                spinnerStatus.selectedItemPosition.toString()
+            )?.enqueue(object : Callback<ResponseCreatePost?> {
+                override fun onFailure(call: Call<ResponseCreatePost?>, t: Throwable) {
+                    Toast.makeText(root.context, call.timeout().toString(), Toast.LENGTH_SHORT).show()
                     progress.dismiss()
-                    Toast.makeText(root.context, "Gagal Ditambahkan", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onResponse(
-                    call: Call<ResultResponse?>,
-                    response: Response<ResultResponse?>
+                    call: Call<ResponseCreatePost?>,
+                    response: Response<ResponseCreatePost?>
                 ) {
+                    if (response.isSuccessful){
+                        Toast.makeText(root.context, response.body()?.message.toString(), Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(root.context, response.body()?.message.toString(), Toast.LENGTH_SHORT).show()
+                    }
                     progress.dismiss()
-                    Toast.makeText(root.context, "Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
                 }
             })
         }
