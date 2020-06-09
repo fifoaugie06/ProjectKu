@@ -42,7 +42,7 @@ class DashboardFragment : Fragment() {
         progress.setMessage("Loading ...")
         progress.show()
 
-        ApiClient().getService()?.getListProject()?.enqueue(object : Callback<ResponseProjectsGET?> {
+        ApiClient().getService().getListProject()?.enqueue(object : Callback<ResponseProjectsGET?> {
             override fun onFailure(call: Call<ResponseProjectsGET?>, t: Throwable) {
                 Toast.makeText(viewOfLayout.context, "Timeout", Toast.LENGTH_SHORT)
                     .show()

@@ -17,6 +17,33 @@ data class ResponseProjectsGET(
 	val status: Int? = null
 )
 
+data class ResponseProjectGET(
+
+	@field:SerializedName("data")
+	val data: DataItem? = null,
+
+	@field:SerializedName("data_count")
+	val dataCount: Int? = null,
+
+	@field:SerializedName("message")
+	val message: String? = null,
+
+	@field:SerializedName("status")
+	val status: Int? = null
+)
+
+data class ResponseCreatePost(
+
+	@field:SerializedName("data")
+	val data: DataItem? = null,
+
+	@field:SerializedName("message")
+	val message: String? = null,
+
+	@field:SerializedName("status")
+	val status: Int? = null
+)
+
 data class DataItem(
 
 	@field:SerializedName("NamaProject")

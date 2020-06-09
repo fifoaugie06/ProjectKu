@@ -1,14 +1,12 @@
 import com.example.projectku.model.ResponseCreatePost
+import com.example.projectku.model.ResponseProjectGET
 import com.example.projectku.model.ResponseProjectsGET
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 class ApiClient {
@@ -37,6 +35,8 @@ class ApiClient {
 }
 
 interface ApiService {
+
+
     @FormUrlEncoded
     @POST("projects/")
     fun createProject(
@@ -50,6 +50,11 @@ interface ApiService {
         @Field("WaktuBerakhir") waktuberakhir: String?,
         @Field("StatusProject") statusproject: String?
     ): Call<ResponseCreatePost?>?
+
+    @GET("projects/{id}")
+    fun getSpesicifsProject(
+        @Path("id") id: Int?
+    ): Call<ResponseProjectGET?>?
 
     @GET("projects/")
     fun getListProject(): Call<ResponseProjectsGET?>?
